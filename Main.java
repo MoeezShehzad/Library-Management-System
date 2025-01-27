@@ -86,7 +86,8 @@ class Library {
 
     public void RemoveBook() {
         System.out.println("Removing a book...");
-        System.out.println("Book Removed");
+        books.remove(books.size() - 1);
+        System.out.println("Books Removed");
     }
 
     public void info() {
