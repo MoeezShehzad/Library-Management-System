@@ -49,7 +49,6 @@ class Library {
             System.out.println("Book returned by " + name + " with Book ID: " + bookId + " on " + ReturnDate);
             System.out.println("Book Returned");
         }
-        }
     }
 
     // adding books using arraylist
