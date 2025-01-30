@@ -41,13 +41,14 @@ class Library {
 
     // Book returning method
     public void ReturnBook() {
-        if (bookId == 0 || bookName == null || IssueDate == null || ReturnDate == null || name == null) {
+        if (bookId == 0 || bookName == null || name == null) {
             System.out.println("No books data found to be returned");
             return;
         } else {
             System.out.println("Returning a book...");
             System.out.println("Book returned by " + name + " with Book ID: " + bookId + " on " + ReturnDate);
             System.out.println("Book Returned");
+        }
         }
     }
 
@@ -85,9 +86,19 @@ class Library {
     }
 
     public void RemoveBook() {
-        System.out.println("Removing a book...");
-        books.remove(books.size() - 1);
-        System.out.println("Books Removed");
+        if(books.isEmpty()){
+            System.out.println("Books not found");
+        }
+        else{
+            Scanner scan = new Scanner(System.in);
+            String bookToRemove = scan.nextLine();
+            if(books.contains(bookToRemove)){
+                books.remove(bookToRemove);
+                System.out.println("Book removed of name: "+ bookToRemove);
+            }
+            else
+                System.out.println("Book not found");
+        }
     }
 
     public void info() {
@@ -134,7 +145,7 @@ class Main {
                 if (sc.hasNextInt()) {
                     n = sc.nextInt();
                     sc.nextLine(); // consume the newline character
-                    if (n >= 1 && n <= 7) {
+                    if (n >= 1 && n <= 8) {
                         break;
                     } else {
                         System.out.println("Invalid input. Please enter a number between 1 and 7.");
